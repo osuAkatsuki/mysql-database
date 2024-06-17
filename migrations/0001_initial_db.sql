@@ -77,7 +77,7 @@ CREATE TABLE `badges` (
   `icon` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `colour` varchar(24) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `bancho_channels` (
   `hidden` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +114,7 @@ CREATE TABLE `bancho_settings` (
   `value_int` int NOT NULL DEFAULT '0',
   `value_string` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `beatmaps_rating` (
   KEY `beatmap_md5` (`beatmap_md5`),
   KEY `rating` (`rating`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32059 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +231,7 @@ CREATE TABLE `clans` (
   UNIQUE KEY `clans_invit_uindex` (`invite`),
   UNIQUE KEY `owner` (`owner`) USING BTREE,
   KEY `status` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=7284 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -257,7 +257,7 @@ CREATE TABLE `comments` (
   KEY `score_id` (`score_id`),
   KEY `time` (`time`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1062 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,7 +273,7 @@ CREATE TABLE `faq` (
   `callback` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name_2` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `hw_user` (
   KEY `unique_id` (`unique_id`),
   KEY `disk_id` (`disk_id`),
   KEY `userid` (`userid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5657205 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,7 @@ CREATE TABLE `ip_user` (
   KEY `userid` (`userid`),
   KEY `occurencies` (`occurencies`),
   KEY `ip` (`ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=56584665 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,7 +363,7 @@ CREATE TABLE `lastfm_flags` (
   `flag_enum` int NOT NULL,
   `flag_text` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60387 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,7 +415,7 @@ CREATE TABLE `main_menu_icons` (
   `is_default` tinyint(1) NOT NULL DEFAULT '0',
   `is_current` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,7 +434,7 @@ CREATE TABLE `match_events` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `match_lookup` (`match_id`,`game_id`,`user_id`,`timestamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=187037 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -465,7 +465,7 @@ CREATE TABLE `match_game_scores` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `match_lookup` (`match_id`,`game_id`,`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=131891 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -487,7 +487,7 @@ CREATE TABLE `match_games` (
   `end_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `match_lookup` (`id`,`match_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65873 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -505,7 +505,7 @@ CREATE TABLE `matches` (
   `end_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `match_lookup` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8847 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -523,7 +523,7 @@ CREATE TABLE `notifications` (
   `notification` json NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -539,7 +539,7 @@ CREATE TABLE `password_recovery` (
   `u` varchar(30) NOT NULL,
   `t` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21551 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -617,7 +617,7 @@ CREATE TABLE `pp_limits` (
   `autopilot_flashlight_pp` int NOT NULL,
   PRIMARY KEY (`gamemode`),
   KEY `gamemode` (`gamemode`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -635,7 +635,7 @@ CREATE TABLE `privileges_groups` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `privileges` (`privileges`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -669,7 +669,7 @@ CREATE TABLE `rap_logs` (
   `through` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=71353 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -686,7 +686,7 @@ CREATE TABLE `remember` (
   `token_sha` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=958 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -712,7 +712,7 @@ CREATE TABLE `reports` (
   KEY `from_uid` (`from_uid`),
   KEY `to_uid` (`to_uid`),
   KEY `from_uid_2` (`from_uid`,`to_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=551 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -789,7 +789,7 @@ CREATE TABLE `reworks` (
   `rx` int NOT NULL,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`rework_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -901,7 +901,7 @@ CREATE TABLE `scores` (
   KEY `scores_idx_userid_play_mode` (`userid`,`play_mode`),
   KEY `scores_idx_userid_play_mode_completed` (`userid`,`play_mode`,`completed`),
   KEY `scores_idx_userid_playmode_id_desc` (`userid`,`play_mode`,`id` DESC)
-) ENGINE=InnoDB AUTO_INCREMENT=536968741 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='regular scores b';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='regular scores b';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -946,7 +946,7 @@ CREATE TABLE `scores_ap` (
   KEY `scores_ap_idx_userid_pinned_play_mode` (`userid`,`pinned`,`play_mode`),
   KEY `userid_2` (`userid`,`play_mode`),
   KEY `scores_ap_idx_userid_play_mode_completed` (`userid`,`play_mode`,`completed`)
-) ENGINE=InnoDB AUTO_INCREMENT=6148914691237190485 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1008,7 +1008,7 @@ CREATE TABLE `scores_relax` (
   KEY `scores_relax_idx_userid_pinned_play_mode` (`userid`,`pinned`,`play_mode`),
   KEY `scores_relax_idx_userid_play_mode` (`userid`,`play_mode`),
   KEY `scores_relax_idx_userid_play_mode_completed` (`userid`,`play_mode`,`completed`)
-) ENGINE=InnoDB AUTO_INCREMENT=67088667 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1023,7 +1023,7 @@ CREATE TABLE `seasonal_bg` (
   `enabled` tinyint(1) NOT NULL,
   `url` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1039,7 +1039,7 @@ CREATE TABLE `system_settings` (
   `value_int` int NOT NULL DEFAULT '0',
   `value_string` varchar(2048) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1060,7 +1060,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `token` (`token`),
   KEY `user` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=329313 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1075,7 +1075,7 @@ CREATE TABLE `tourmnt_badges` (
   `name` varchar(256) NOT NULL,
   `icon` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1091,7 +1091,7 @@ CREATE TABLE `user_badges` (
   `badge` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5989 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1174,7 +1174,7 @@ CREATE TABLE `user_speedruns` (
   KEY `game_mode` (`game_mode`),
   KEY `timeframe` (`timeframe`),
   KEY `score_type` (`score_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1243,7 +1243,7 @@ CREATE TABLE `user_tourmnt_badges` (
   `badge` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1293,7 +1293,7 @@ CREATE TABLE `users` (
   KEY `username` (`username`),
   KEY `clan_id` (`clan_id`),
   KEY `country` (`country`)
-) ENGINE=InnoDB AUTO_INCREMENT=131024 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1313,7 +1313,7 @@ CREATE TABLE `users_achievements` (
   KEY `user_id` (`user_id`),
   KEY `achievement_id` (`achievement_id`),
   KEY `time` (`created_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=520865 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1330,7 +1330,7 @@ CREATE TABLE `users_relationships` (
   PRIMARY KEY (`id`),
   KEY `user1` (`user1`),
   KEY `user2` (`user2`)
-) ENGINE=InnoDB AUTO_INCREMENT=257718 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
