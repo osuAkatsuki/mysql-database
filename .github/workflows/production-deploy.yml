@@ -27,4 +27,4 @@ jobs:
             git checkout origin/${{ steps.extract_branch.outputs.branch }}
             git pull origin ${{ steps.extract_branch.outputs.branch }}
             docker build -t mysql-database:latest .
-            docker run --network=host --env-file=.env -it mysql-database:latest
+            docker run --network=host --env-file=.env mysql-database:latest
