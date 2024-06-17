@@ -13,6 +13,5 @@ mysql \
 
 echo "Running up migrations for ${DB_NAME} database"
 DB_DSN="mysql://${DB_USER}:${DB_PASS}@tcp(${DB_HOST}:${DB_PORT})/${DB_NAME}?parseTime=true&x-migrations-table=${MIGRATIONS_SCHEMA_TABLE}"
-ls migrations
 go-migrate -path migrations -database $DB_DSN up
 echo "Migrations ran successfully"
