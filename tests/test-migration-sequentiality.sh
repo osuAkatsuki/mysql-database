@@ -6,7 +6,6 @@ test_migration_sequentiality() {
     for migration_filename in $(ls migrations | sort -nk1); do
         m=$(echo $migration_filename | cut -d'_' -f1)
         echo "Running migration $m"
-        echo $m
         if [ $count -ne $m ]; then
             echo "Migration $m is out of order"
             exit 1
