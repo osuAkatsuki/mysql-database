@@ -1,0 +1,19 @@
+name: test
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "/migrations/*"
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run migration sequentiality test
+        run: |
+          ./tests/test-migration-sequentiality.sh
