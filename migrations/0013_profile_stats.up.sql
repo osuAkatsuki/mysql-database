@@ -1,13 +1,8 @@
--- TODO: lock this table and whole lot more
--- lock table user_stats write;
-
 alter table user_stats
     add column stats_profile_id int not null auto_increment unique first;
 alter table user_stats
     drop primary key,
     add primary key (stats_profile_id);
-
--- TODO: global & country ranks
 
 alter table scores
     add column stats_profile_id int null after id;
@@ -50,5 +45,3 @@ update scores_ap
 alter table scores_ap
     modify column stats_profile_id int not null,
         add index (stats_profile_id);
-
-unlock tables;
