@@ -16,7 +16,7 @@ update scores
     where scores.stats_profile_id is null;
 alter table scores
     modify column stats_profile_id int not null,
-    add index (stats_profile_id);
+        add index (stats_profile_id);
 
 alter table scores_relax
     add column stats_profile_id int null after id;
@@ -30,7 +30,7 @@ update scores_relax
     where scores_relax.stats_profile_id is null;
 alter table scores_relax
     modify column stats_profile_id int not null,
-    add index (stats_profile_id);
+        add index (stats_profile_id);
 
 alter table scores_ap
     add column stats_profile_id int null after id;
