@@ -6,11 +6,11 @@ create table messages (
     content varchar(2048) not null,
     read_at datetime null,
     created_at datetime not null default CURRENT_TIMESTAMP,
-    status varchar(255) not null default 'active'
+    deleted_at datetime null
 );
 alter table messages add index (sender_id);
 alter table messages add index (recipient_id);
 alter table messages add index (recipient_channel);
 alter table messages add index (read_at);
 alter table messages add index (created_at);
-alter table messages add index (status);
+alter table messages add index (deleted_at);
