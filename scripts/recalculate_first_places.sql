@@ -1,5 +1,5 @@
 -- ============================================================
--- Recalculate First Places Script
+-- Recalculate First Places Script (FIXED)
 --
 -- This script fixes historical inaccuracies in the scores_first
 -- table by:
@@ -102,7 +102,9 @@ BEGIN
         DEALLOCATE PREPARE stmt;
 
         -- STEP 3: Insert missing entries
+        -- FIX: Move INSERT before WITH clause for proper MySQL syntax
         SET @sql = CONCAT('
+            INSERT INTO scores_first (beatmap_md5, mode, rx, scoreid, userid)
             WITH ranked_scores AS (
                 SELECT
                     ', scores_table, '.beatmap_md5,
@@ -130,7 +132,6 @@ BEGIN
                 FROM scores_first
                 WHERE scores_first.rx = ', rx_val, '
             )
-            INSERT INTO scores_first (beatmap_md5, mode, rx, scoreid, userid)
             SELECT best_scores.beatmap_md5, best_scores.play_mode, ', rx_val, ', best_scores.id, best_scores.userid
             FROM best_scores
             LEFT JOIN existing_first_places ON existing_first_places.beatmap_md5 = best_scores.beatmap_md5
