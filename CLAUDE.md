@@ -46,17 +46,6 @@ ALTER TABLE scores_relax
   COMMENT 'JSON analysis results from nachalo-konca cheat detection';
 ```
 
-## Database Schema
-
-The database schema is defined in `migrations/0001_initial_db.up.sql` (full MySQL dump). Subsequent migrations modify this schema incrementally.
-
-Key tables:
-- `less_achievements` - Achievement definitions (medals)
-- `scores`, `scores_relax`, `scores_ap` - Score data per game mode
-- `users` - User accounts and privileges
-- `users_stats` - Per-mode user statistics
-- `beatmaps` - Cached beatmap metadata
-
 ## Deployment
 
 Migrations are automatically applied when the mysql-database Docker container starts:
