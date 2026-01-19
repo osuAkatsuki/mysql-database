@@ -89,7 +89,7 @@ def query_mod_achievement(
         WHERE s.mods & %s != 0
           AND s.completed = 3
           AND ua.id IS NULL
-        GROUP BY s.userid, mode
+        GROUP BY s.userid, s.play_mode
     """
 
     if verbose:
@@ -142,7 +142,7 @@ def query_combo_achievement(
           AND s.play_mode = 0
           AND s.completed = 3
           AND ua.id IS NULL
-        GROUP BY s.userid, mode
+        GROUP BY s.userid
     """
 
     if verbose:
