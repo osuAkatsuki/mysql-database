@@ -41,6 +41,12 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd /opt/akatsuki
-            docker compose pull mysql-database 2>/dev/null || true
-            docker run --rm --network host \
+            docker pull osuakatsuki/mysql-database:latest
+            source .env
+            docker run --rm \
+              --add-host=host.docker.internal:host-gateway \
+              -e PULL_SECRETS_FROM_VAULT=1 \
+              -e APP_ENV=production \
+              -e VAULT_ADDR=http://host.docker.internal:8200 \
+              -e VAULT_TOKEN=$VAULT_TOKEN \
               osuakatsuki/mysql-database:latest

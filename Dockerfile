@@ -1,8 +1,14 @@
-FROM ubuntu:23.10
+FROM ubuntu:24.04
 
 WORKDIR /srv/root
 
-RUN apt update && apt install -y default-mysql-client wget
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    default-mysql-client \
+    wget \
+    ca-certificates \
+    curl \
+    jq \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz && \
     tar zxvf migrate.linux-amd64.tar.gz && \
