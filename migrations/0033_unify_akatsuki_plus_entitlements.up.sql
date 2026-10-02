@@ -11,21 +11,32 @@ INNER JOIN users u ON u.id = ub.user
 WHERE ub.badge IN (36, 59)
   AND ((u.privileges & 8388612) != 8388612 OR u.donor_expire <= UNIX_TIMESTAMP());
 
--- Convert active legacy badges, and repair ordinary members' missing membership badges.
+-- Replace active legacy badges in place without using another UI badge slot.
+UPDATE user_badges legacy_badge
+INNER JOIN users u ON u.id = legacy_badge.user
+LEFT JOIN user_badges member_badge ON member_badge.user = u.id AND member_badge.badge = 59
+LEFT JOIN user_badges earlier_badge ON earlier_badge.user = u.id
+    AND earlier_badge.badge = 36 AND earlier_badge.id < legacy_badge.id
+SET legacy_badge.badge = 59
+WHERE legacy_badge.badge = 36
+  AND (u.privileges & 8388612) = 8388612
+  AND u.donor_expire > UNIX_TIMESTAMP()
+  AND member_badge.id IS NULL
+  AND earlier_badge.id IS NULL;
+
+DELETE FROM user_badges WHERE badge = 36;
+
+-- Add missing membership badges only when an ordinary member has a free UI slot.
 -- Staff presets may have complimentary benefits without a membership badge; preserve that policy.
 INSERT INTO user_badges (user, badge)
 SELECT u.id, 59
 FROM users u
-WHERE (u.privileges & 8388612) = 8388612
+WHERE u.privileges = 8388615
   AND u.donor_expire > UNIX_TIMESTAMP()
-  AND (u.privileges = 8388615 OR EXISTS (
-      SELECT 1 FROM user_badges old_badge WHERE old_badge.user = u.id AND old_badge.badge = 36
-  ))
+  AND (SELECT COUNT(*) FROM user_badges slots WHERE slots.user = u.id) < 6
   AND NOT EXISTS (
       SELECT 1 FROM user_badges member_badge WHERE member_badge.user = u.id AND member_badge.badge = 59
   );
-
-DELETE FROM user_badges WHERE badge = 36;
 
 UPDATE users
 SET can_custom_badge = ((privileges & 8388612) = 8388612 AND donor_expire > UNIX_TIMESTAMP());
